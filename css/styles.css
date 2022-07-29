@@ -2,6 +2,18 @@
   background-color: lawngreen;
 }
 
-.car-styling {
+.car-size {
   max-width: 10%;
+}
+
+.facing-down {
+  transform: rotate(90deg);
+}
+
+.facing-left {
+  transform: rotate(180deg);
+}
+
+.facing-up {
+  transform: rotate(270deg);
 }
