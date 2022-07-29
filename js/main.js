@@ -1,6 +1,7 @@
 /* global data */
 
 var $car = document.querySelector('.car-size');
+var intervalId = null;
 
 function keyPress(event) {
   if (event.keyCode === 39) {
@@ -15,15 +16,20 @@ function keyPress(event) {
   } else if (event.keyCode === 38) {
     $car.className = 'car-size facing-up';
     data.direction = 'up';
-  } if (event.keyCode === 32) {
+
+  } if (event.keyCode === 32 && data.start === false) {
     // eslint-disable-next-line no-unused-vars
-    var intervalId = setInterval(start, 5);
+    intervalId = setInterval(start, 5);
+    data.start = true;
+  } else if (event.keyCode === 32 && data.start === true) {
+    clearInterval(intervalId);
+    data.start = false;
   }
 }
 
 window.addEventListener('keydown', keyPress);
 
-function start(event) {
+function start() {
   data.x = data.x + 1;
   $car.style.left = data.x + 'px';
 }
