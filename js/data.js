@@ -1,4 +1,6 @@
 /* exported data */
 var data = {
-  direction: 'right'
+  direction: 'right',
+  x: 0,
+  y: 0
 };

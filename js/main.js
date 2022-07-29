@@ -2,7 +2,7 @@
 
 var $car = document.querySelector('.car-size');
 
-function changeDirection(event) {
+function keyPress(event) {
   if (event.keyCode === 39) {
     $car.className = 'car-size';
     data.direction = 'right';
@@ -15,7 +15,15 @@ function changeDirection(event) {
   } else if (event.keyCode === 38) {
     $car.className = 'car-size facing-up';
     data.direction = 'up';
+  } if (event.keyCode === 32) {
+    // eslint-disable-next-line no-unused-vars
+    var intervalId = setInterval(start, 5);
   }
 }
 
-window.addEventListener('keydown', changeDirection);
+window.addEventListener('keydown', keyPress);
+
+function start(event) {
+  data.x = data.x + 1;
+  $car.style.left = data.x + 'px';
+}
